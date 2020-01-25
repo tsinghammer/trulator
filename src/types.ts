@@ -10,11 +10,31 @@ export interface Message {
   severity: 'Error' | 'Warning' | 'Info';
 }
 
+export const isPrimitive = (object: any): object is Primitive => {
+  switch (typeof object) {
+    case 'bigint':
+      return true;
+    case 'boolean':
+      return true;
+    case 'number':
+      return true;
+    case 'string':
+      return true;
+    case 'symbol':
+      return true;
+    case 'undefined':
+      return true;
+    default:
+      return false;
+  }
+};
+
 export const isRule = (object: any) => {
-  return 'validations' in object;
+  return object.isRule;
 };
 
 export interface Rule<T, S> {
+  isRule?: true;
   default?: T;
   disabled?: ((trade: S) => boolean) | boolean;
   hidden?: ((trade: S) => boolean) | boolean;

@@ -1,4 +1,4 @@
-import { RuleResult, ViewConfiguration, isRule } from './types';
+import { RuleResult, ViewConfiguration, isPrimitive, isRule } from './types';
 
 interface RecursionSet {
   completeData: any;
@@ -32,7 +32,7 @@ function evaluateRuleRecursively(set: RecursionSet): any {
     const r = rule[key];
     const n = nextData[key];
 
-    if (isRule(r)) {
+    if (isPrimitive(n) || isRule(r)) {
       result[key] = mapResult(r, completeData);
     } else if (n.constructor === Array) {
       for (let i = 0; i < n.length; i++) {
