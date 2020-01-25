@@ -11,14 +11,14 @@ it('should map default values from product to trade', () => {
     amount: 0,
     amountHistory: [1, 2, 343243, 655555],
     currency: 'EUR',
-    customerName: '',
-    date: new Date().toLocaleDateString(),
-    department: 'EUR Dep 1',
     currentOrder: {
       amount: 123.45,
       date: new Date().toLocaleDateString(),
       department: 'EUR Dep 1',
     },
+    customerName: '',
+    date: new Date().toLocaleDateString(),
+    department: 'EUR Dep 1',
     orders: [
       {
         amount: 678.9,
@@ -80,17 +80,9 @@ it('should map default values from product to trade', () => {
 
   mapDefaults(viewConfiguration, viewModel);
 
-  expect(viewModel.customerName).toEqual(
-    viewConfiguration.customerName.default,
-  );
+  expect(viewModel.customerName).toEqual(viewConfiguration.customerName.default);
   expect(viewModel.amount).toEqual(viewConfiguration.amount.default);
-  expect(viewModel.currentOrder.amount).toEqual(
-    viewConfiguration.currentOrder.amount.default,
-  );
-  expect(viewModel.currentOrder.department).toEqual(
-    viewConfiguration.currentOrder.department.default,
-  );
-  expect(viewModel.orders[0].amount).toEqual(
-    viewConfiguration.orders[0].amount.default,
-  );
+  expect(viewModel.currentOrder.amount).toEqual(viewConfiguration.currentOrder.amount.default);
+  expect(viewModel.currentOrder.department).toEqual(viewConfiguration.currentOrder.department.default);
+  expect(viewModel.orders[0].amount).toEqual(viewConfiguration.orders[0].amount.default);
 });

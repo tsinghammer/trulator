@@ -31,16 +31,13 @@ function* mapRecursively(set: RecursionSet): any {
   }
 }
 
-export function mapDefaults<T>(
-  configuration: ViewConfiguration<T, T>,
-  viewModel: T,
-) {
-  let it = mapRecursively({
+export function mapDefaults<T>(configuration: ViewConfiguration<T, T>, viewModel: T) {
+  const it = mapRecursively({
     configurationData: configuration,
     viewModelData: viewModel,
   });
 
-  let result = it.next();
+  const result = it.next();
   while (!result.done) {
     it.next();
   }

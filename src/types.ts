@@ -1,11 +1,4 @@
-export type Primitive =
-  | string
-  | number
-  | boolean
-  | bigint
-  | symbol
-  | undefined
-  | null;
+export type Primitive = string | number | boolean | bigint | symbol | undefined | null;
 
 export interface ValidationRule<T> {
   rule: (trade: T) => boolean;
@@ -14,11 +7,11 @@ export interface ValidationRule<T> {
 
 export interface Message {
   text: string;
-  severity: "Error" | "Warning" | "Info";
+  severity: 'Error' | 'Warning' | 'Info';
 }
 
 export const isRule = (object: any) => {
-  return "validations" in object;
+  return 'validations' in object;
 };
 
 export interface Rule<T, S> {

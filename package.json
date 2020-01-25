@@ -1,17 +1,30 @@
 {
-  "name": "product-configurator-playground",
+  "name": "trulator",
   "version": "0.1.0",
-  "private": true,
+  "description": "Rule engine and view model configurator",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "dependencies": {
-    "@types/jest": "24.0.23",
+    "@types/jest": "^24.9.1",
     "@types/node": "12.12.11"
   },
   "scripts": {
     "build": "tsc",
-    "test": "react-scripts test",
-    "format": "prettier --write \"src/**/*.t\" \"src/**/.js\"",
+    "test": "jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
     "lint": "tslint -p tsconfig.json"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsinghammer/trulator.git"
+  },
+  "keywords": [
+    "Rule",
+    "Engine",
+    "Viewmodel",
+    "Configuration"
+  ],
+  "author": "C-J",
   "eslintConfig": {
     "extends": "react-app"
   },
@@ -28,9 +41,14 @@
     ]
   },
   "devDependencies": {
+    "jest": "^25.1.0",
     "prettier": "^1.19.1",
-    "tslint": "^5.20.1",
+    "ts-jest": "^25.0.0",
+    "tslint": "^6.0.0",
     "tslint-config-prettier": "^1.18.0",
-    "typescript": "^3.7.2"
-  }
+    "typescript": "^3.7.5"
+  },
+  "files": [
+    "lib/**/*"
+  ]
 }

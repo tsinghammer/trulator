@@ -1,4 +1,4 @@
-import { RuleResult, ViewConfiguration, isRule } from "./types";
+import { RuleResult, ViewConfiguration, isRule } from './types';
 
 interface RecursionSet {
   completeData: any;
@@ -9,22 +9,12 @@ interface RecursionSet {
 
 const mapResult = (rule: any, completeData: any): any => {
   return {
-    hidden:
-      typeof rule.hidden === "function"
-        ? rule.hidden(completeData)
-        : rule.hidden,
-    disabled:
-      typeof rule.disabled === "function"
-        ? rule.disabled(completeData)
-        : rule.disabled,
-    messages: rule.validations
-      .filter((x: any) => !!x.rule && x.rule(completeData))
-      .map((x: any) => x.message),
+    hidden: typeof rule.hidden === 'function' ? rule.hidden(completeData) : rule.hidden,
+    disabled: typeof rule.disabled === 'function' ? rule.disabled(completeData) : rule.disabled,
+    messages: rule.validations.filter((x: any) => !!x.rule && x.rule(completeData)).map((x: any) => x.message),
     overrideValue: rule.overrideValue && rule.overrideValue(completeData),
     availableOptions:
-      typeof rule.availableOptions === "function"
-        ? rule.availableOptions(completeData)
-        : rule.availableOptions
+      typeof rule.availableOptions === 'function' ? rule.availableOptions(completeData) : rule.availableOptions,
   };
 };
 
@@ -35,12 +25,12 @@ function evaluateRuleRecursively(set: RecursionSet): any {
   }
 
   for (const key in nextData) {
-    const r = rule[key];
-    const n = nextData[key];
-
-    if (!r) {
+    if (!rule[key]) {
       continue;
     }
+
+    const r = rule[key];
+    const n = nextData[key];
 
     if (isRule(r)) {
       result[key] = mapResult(r, completeData);
@@ -58,7 +48,7 @@ function evaluateRuleRecursively(set: RecursionSet): any {
         completeData,
         nextData: n,
         rule: r,
-        result: result[key] || {}
+        result: result[key] || {},
       });
     }
   }
@@ -66,15 +56,12 @@ function evaluateRuleRecursively(set: RecursionSet): any {
   return result;
 }
 
-export function evaluateRules<T>(
-  trade: T,
-  product: ViewConfiguration<T, T>
-): RuleResult<T> {
+export function evaluateRules<T>(trade: T, product: ViewConfiguration<T, T>): RuleResult<T> {
   const result = evaluateRuleRecursively({
     completeData: trade,
     nextData: trade,
     rule: product,
-    result: {}
+    result: {},
   });
 
   return result as RuleResult<T>;
