@@ -63,3 +63,19 @@ it('should accpet either configuration or a rule type for non-primitives', () =>
 
   expect(resultRule.currentOrder?.disabled).toBeTruthy();
 });
+
+it('should not crash for undefined rules', () => {
+  const testConfig = { ...viewConfiguration };
+  testConfig.amount = {
+    disabled: undefined,
+    availableOptions: undefined,
+    default: undefined,
+    hidden: undefined,
+    isRule: undefined,
+    overrideValue: undefined,
+    validations: undefined,
+  };
+  const result = evaluateRules(testData, testConfig);
+
+  expect(result).toBeDefined();
+});
