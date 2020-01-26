@@ -1,9 +1,10 @@
-import { Result, ViewConfiguration } from '../../../src/types';
-import { ViewModel } from '../../../test/types';
+import { ViewModel } from 'trulator/lib/test/types';
+
+import { RuleResult, ViewConfiguration } from '../../../src/types';
 
 export interface State {
   mutationCount: number;
   data: ViewModel;
   viewConfiguration: ViewConfiguration<ViewModel, ViewModel>;
-  result: Result<ViewModel>;
+  result: RuleResult<ViewModel>;
 }
