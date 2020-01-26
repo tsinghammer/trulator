@@ -11,7 +11,7 @@ const mapResult = (rule: any, completeData: any): any => {
   return {
     hidden: typeof rule.hidden === 'function' ? rule.hidden(completeData) : rule.hidden,
     disabled: typeof rule.disabled === 'function' ? rule.disabled(completeData) : rule.disabled,
-    messages: rule.validations.filter((x: any) => !!x.rule && x.rule(completeData)).map((x: any) => x.message),
+    messages: rule.validations?.filter((x: any) => !!x.rule && x.rule(completeData)).map((x: any) => x.message),
     overrideValue: rule.overrideValue && rule.overrideValue(completeData),
     availableOptions:
       typeof rule.availableOptions === 'function' ? rule.availableOptions(completeData) : rule.availableOptions,

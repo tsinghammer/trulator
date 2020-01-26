@@ -37,3 +37,29 @@ it('should set the correct dependent dropdown', () => {
   expect(result.department!.availableOptions).toEqual(['EUR Dep 1', 'EUR Dep 2']);
   expect(result2.department!.availableOptions).toEqual(['USD Dep 1', 'USD Dep 2']);
 });
+
+it('should accpet either configuration or a rule type for non-primitives', () => {
+  const testConfigConfiguration = { ...viewConfiguration };
+  testConfigConfiguration.currentOrder = {
+    amount: { disabled: true },
+    date: { hidden: true },
+    department: { hidden: true },
+  };
+  const resultConfig = evaluateRules(testData, testConfigConfiguration);
+
+  const testConfigRule = { ...viewConfiguration };
+  testConfigRule.currentOrder = {
+    isRule: true,
+    disabled: true,
+    date: {},
+    amount: {},
+    department: {},
+  };
+  const resultRule = evaluateRules(testData, testConfigRule);
+
+  expect(resultConfig.currentOrder?.amount?.disabled).toBeTruthy();
+  expect(resultConfig.currentOrder?.date?.hidden).toBeTruthy();
+  expect(resultConfig.currentOrder?.department?.hidden).toBeTruthy();
+
+  expect(resultRule.currentOrder?.disabled).toBeTruthy();
+});

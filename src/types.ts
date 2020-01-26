@@ -30,7 +30,7 @@ export const isPrimitive = (object: any): object is Primitive => {
 };
 
 export const isRule = (object: any) => {
-  return object.isRule;
+  return !!object.isRule;
 };
 
 export interface Rule<T, S> {
@@ -38,7 +38,7 @@ export interface Rule<T, S> {
   default?: T;
   disabled?: ((trade: S) => boolean) | boolean;
   hidden?: ((trade: S) => boolean) | boolean;
-  validations: ValidationRule<S>[];
+  validations?: ValidationRule<S>[];
   overrideValue?: (trade: S) => T | undefined;
   availableOptions?: (trade: S) => (T | unknown)[] | (T | unknown)[];
 }
@@ -46,7 +46,7 @@ export interface Rule<T, S> {
 export type ViewConfiguration<T, S> = T extends Primitive
   ? Rule<T, S>
   : {
-      [P in keyof T]: ViewConfiguration<T[P], S>;
+      [P in keyof T]: ViewConfiguration<T[P], S> & Rule<T[P], S>;
     };
 
 export type Result<T> = {
