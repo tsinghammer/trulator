@@ -45,7 +45,7 @@ it('should map default values from product to trade', () => {
     },
     date: { validations: [] },
     department: { validations: [] },
-    amountHistory: [{ validations: [], default: 2 }],
+    amountHistory: { validations: [], default: 2 },
     currentOrder: {
       amount: {
         default: 1,
@@ -60,22 +60,20 @@ it('should map default values from product to trade', () => {
         validations: [],
       },
     },
-    orders: [
-      {
-        amount: {
-          default: 1000,
-          validations: [],
-        },
-        date: {
-          default: 'some day',
-          validations: [],
-        },
-        department: {
-          default: 'USD Dep 2',
-          validations: [],
-        },
+    orders: {
+      amount: {
+        default: 1000,
+        validations: [],
       },
-    ],
+      date: {
+        default: 'some day',
+        validations: [],
+      },
+      department: {
+        default: 'USD Dep 2',
+        validations: [],
+      },
+    },
   };
 
   mapDefaults(viewConfiguration, viewModel);
@@ -84,5 +82,5 @@ it('should map default values from product to trade', () => {
   expect(viewModel.amount).toEqual(viewConfiguration.amount.default);
   expect(viewModel.currentOrder.amount).toEqual(viewConfiguration.currentOrder.amount.default);
   expect(viewModel.currentOrder.department).toEqual(viewConfiguration.currentOrder.department.default);
-  expect(viewModel.orders[0].amount).toEqual(viewConfiguration.orders[0].amount.default);
+  expect(viewModel.orders[0].amount).toEqual(viewConfiguration.orders.amount.default);
 });

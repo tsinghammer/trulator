@@ -47,32 +47,31 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
       },
     ],
   },
-  amountHistory: [
-    { validations: [] },
-    { validations: [] },
-    { validations: [] },
-    {
-      overrideValue: model => {
-        if (model.amountHistory[0] > 1000) {
-          const amounts = [...model.amountHistory];
-          amounts[3] = amounts[0];
+  amountHistory: {},
+  // amountHistory: [
+  //   {},
+  //   {},
+  //   {},
+  //   {
+  //     overrideValue: model => {
+  //       if (model.amountHistory[0] > 1000) {
+  //         const amounts = [...model.amountHistory];
+  //         amounts[3] = amounts[0];
 
-          return amounts[3];
-        }
-      },
-      validations: [
-        {
-          message: {
-            severity: 'Error',
-            text: 'Amount 1 does not match amount 2',
-          },
-          rule: model =>
-            !model.amountHistory ||
-            model.amountHistory[0] !== model.amountHistory[1],
-        },
-      ],
-    },
-  ],
+  //         return amounts[3];
+  //       }
+  //     },
+  //     validations: [
+  //       {
+  //         message: {
+  //           severity: 'Error',
+  //           text: 'Amount 1 does not match amount 2',
+  //         },
+  //         rule: model => !model.amountHistory || model.amountHistory[0] !== model.amountHistory[1],
+  //       },
+  //     ],
+  //   },
+  // ],
   currency: { validations: [] },
   currentOrder: {
     amount: { validations: [], hidden: true },
@@ -85,14 +84,18 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
     validations: [],
   },
   department: {
-    availableOptions: model =>
-      model.currency === 'EUR'
-        ? ['EUR Dep 1', 'EUR Dep 2']
-        : ['USD Dep 1', 'USD Dep 2'],
+    availableOptions: model => (model.currency === 'EUR' ? ['EUR Dep 1', 'EUR Dep 2'] : ['USD Dep 1', 'USD Dep 2']),
     default: 'USD Dep 1',
     validations: [],
   },
-  orders: [],
+  orders: {
+    date: {
+      disabled: true,
+      validations: state => [{ rule: s => true, message: { text: 'hello', severity: 'Warning' } }],
+    },
+    amount: {},
+    department: {},
+  },
 };
 
 const result: RuleResult<ViewModel> = {} as RuleResult<ViewModel>;

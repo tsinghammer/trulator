@@ -1,7 +1,9 @@
+import { type } from 'os';
+
 export type Primitive = string | number | boolean | bigint | symbol | undefined | null;
 
 export interface ValidationRule<T> {
-  rule: (trade: T) => boolean;
+  rule: (state: T) => boolean;
   message: Message;
 }
 
@@ -36,17 +38,20 @@ export const isRule = (object: any) => {
 export interface Rule<T, S> {
   isRule?: true;
   default?: T;
-  disabled?: ((trade: S) => boolean) | boolean;
-  hidden?: ((trade: S) => boolean) | boolean;
-  validations?: ValidationRule<S>[];
-  overrideValue?: (trade: S) => T | undefined;
-  availableOptions?: (trade: S) => (T | unknown)[] | (T | unknown)[];
+  disabled?: ((state: S) => boolean) | boolean;
+  hidden?: ((state: S) => boolean) | boolean;
+  validations?: ((state: S) => ValidationRule<S>[]) | ValidationRule<S>[];
+  overrideValue?: (state: S) => T | undefined;
+  availableOptions?: (state: S) => (T | unknown)[] | (T | unknown)[];
 }
 
 export type ViewConfiguration<T, S> = T extends Primitive
   ? Rule<T, S>
   : {
-      [P in keyof T]: ViewConfiguration<T[P], S> & Rule<T[P], S>;
+      // tslint:disable-next-line
+      [P in keyof T]: T[P] extends Array<infer U>
+        ? ViewConfiguration<U, S> & Rule<U, S>
+        : ViewConfiguration<T[P], S> & Rule<T[P], S>;
     };
 
 export type Result<T> = {
