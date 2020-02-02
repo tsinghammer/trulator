@@ -6,7 +6,7 @@ it('should have mapDefaults', () => {
   expect(mapDefaults).toBeDefined();
 });
 
-it('should map default values from product to trade', () => {
+it('should map default values from view configuration to view model', () => {
   const viewModel: ViewModel = {
     amount: 0,
     amountHistory: [1, 2, 343243, 655555],
@@ -62,7 +62,7 @@ it('should map default values from product to trade', () => {
     },
     orders: {
       amount: {
-        default: 1000,
+        default: 1_000,
         validations: [],
       },
       date: {

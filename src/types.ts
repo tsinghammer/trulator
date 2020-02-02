@@ -3,7 +3,7 @@ import { type } from 'os';
 export type Primitive = string | number | boolean | bigint | symbol | undefined | null;
 
 export interface ValidationRule<T> {
-  rule: (state: T) => boolean;
+  rule: (state: T, index?: number) => boolean;
   message: Message;
 }
 
@@ -40,7 +40,7 @@ export interface Rule<T, S> {
   default?: T;
   disabled?: ((state: S) => boolean) | boolean;
   hidden?: ((state: S) => boolean) | boolean;
-  validations?: ((state: S) => ValidationRule<S>[]) | ValidationRule<S>[];
+  validations?: ValidationRule<S>[];
   overrideValue?: (state: S) => T | undefined;
   availableOptions?: (state: S) => (T | unknown)[] | (T | unknown)[];
 }

@@ -1,3 +1,5 @@
+import { isUndefined } from 'util';
+
 import { RuleResult, ViewConfiguration } from '../src/types';
 import { ViewModel } from './types';
 
@@ -89,11 +91,17 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
     validations: [],
   },
   orders: {
-    date: {
+    amount: {
+      default: 100,
       disabled: true,
-      validations: state => [{ rule: s => true, message: { text: 'hello', severity: 'Warning' } }],
+      validations: [
+        {
+          rule: (s, i) => !isUndefined(i) && s.orders[i].amount >= 1_000,
+          message: { text: 'hello', severity: 'Warning' },
+        },
+      ],
     },
-    amount: {},
+    date: {},
     department: {},
   },
 };
