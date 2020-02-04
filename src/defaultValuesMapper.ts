@@ -24,7 +24,6 @@ function* mapRecursively(set: RecursionSet): any {
           configurationData: r,
           viewModelData: d[i],
         });
-        // data[key][i] = r.default;
       }
     }
 

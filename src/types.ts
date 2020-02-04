@@ -42,7 +42,7 @@ export interface Rule<T, S> {
   hidden?: ((state: S) => boolean) | boolean;
   validations?: ValidationRule<S>[];
   overrideValue?: (state: S) => T | undefined;
-  availableOptions?: (state: S) => (T | unknown)[] | (T | unknown)[];
+  availableOptions?: ((state: S) => (T | unknown)[]) | (T | unknown)[];
 }
 
 export type ViewConfiguration<T, S> = T extends Primitive
