@@ -1,6 +1,6 @@
 {
   "name": "trulator",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Rule engine and view model configurator",
   "main": "lib/src/index.js",
   "types": "lib/src/index.d.ts",
