@@ -1,32 +1,31 @@
 {
-  "name": "trulator",
-  "version": "0.1.3",
-  "description": "Rule engine and view model configurator",
-  "main": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "dependencies": {
-    "@types/jest": "^24.9.1",
-    "@types/node": "12.12.11"
-  },
-  "scripts": {
-    "build": "tsc"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tsinghammer/trulator.git"
-  },
-  "keywords": [
-    "rules",
-    "rule Engine",
-    "configurator",
-    "view configuration"
-  ],
-  "author": "Tassilo Singhammer",
-  "devDependencies": {
-    "typescript": "^3.7.5"
-  },
-  "files": [
-    "lib/**/*"
-  ],
-  "license": "BSD-3-Clause-Attribution"
+    "name": "trulator",
+    "version": "0.1.5",
+    "description": "Rule engine and view model configurator",
+    "dependencies": {
+        "@types/node": "12.12.11"
+    },
+    "main": "lib/index,js",
+    "types": "lib/index.d.ts",
+    "files": [
+        "../src/index.ts",
+        "../src/defaultMapper.ts",
+        "../src/ruleEvaluator.ts",
+        "../src/types.ts"
+    ],
+    "scripts": {
+        "build": "tsc"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tsinghammer/trulator.git"
+    },
+    "keywords": [
+        "rules",
+        "rule Engine",
+        "configurator",
+        "view configuration"
+    ],
+    "author": "Tassilo Singhammer",
+    "license": "MIT"
 }

@@ -1,5 +1,3 @@
-import { type } from 'os';
-
 export type Primitive = string | number | boolean | bigint | symbol | undefined | null;
 
 export interface ValidationRule<T> {
@@ -12,7 +10,7 @@ export interface Message {
   severity: 'Error' | 'Warning' | 'Info';
 }
 
-export const isPrimitive = (object: any): object is Primitive => {
+export const isPrimitive = (object: unknown): object is Primitive => {
   switch (typeof object) {
     case 'bigint':
       return true;
@@ -31,7 +29,8 @@ export const isPrimitive = (object: any): object is Primitive => {
   }
 };
 
-export const isRule = (object: any) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const isRule = (object: any): boolean => {
   return !!object.isRule;
 };
 

@@ -1,5 +1,6 @@
 import { RuleResult, ViewConfiguration, isPrimitive, isRule } from './types';
 
+/* eslint-disable @typescript-eslint/no-explicit-any */
 interface RecursionSet {
   completeData: any;
   nextData: any;

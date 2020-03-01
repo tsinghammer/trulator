@@ -1,10 +1,13 @@
 import { ViewConfiguration } from './types';
 
 interface RecursionSet {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   configurationData: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   viewModelData: any;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function* mapRecursively(set: RecursionSet): any {
   const { viewModelData: data, configurationData: productData } = set;
   if (!data) {
@@ -40,7 +43,7 @@ function* mapRecursively(set: RecursionSet): any {
   }
 }
 
-export function mapDefaults<T>(configuration: ViewConfiguration<T, T>, viewModel: T) {
+export function mapDefaults<T>(configuration: ViewConfiguration<T, T>, viewModel: T): void {
   const it = mapRecursively({
     configurationData: configuration,
     viewModelData: viewModel,

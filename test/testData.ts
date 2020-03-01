@@ -1,7 +1,7 @@
 import { isUndefined } from 'util';
 
-import { RuleResult, ViewConfiguration } from '../src/types';
-import { ViewModel } from './types';
+import { ViewConfiguration } from '../src/types';
+import { Department, ViewModel } from './types';
 
 export const testData: ViewModel = {
   amount: 100000,
@@ -41,11 +41,11 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
     validations: [
       {
         message: { text: 'Amount too low', severity: 'Error' },
-        rule: model => model.amount <= 5000,
+        rule: (model): boolean => model.amount <= 5000,
       },
       {
         message: { text: 'Amount not equal 1234', severity: 'Warning' },
-        rule: model => model.amount !== 1234,
+        rule: (model): boolean => model.amount !== 1234,
       },
     ],
   },
@@ -82,11 +82,12 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
   },
   customerName: { default: 'My default name', validations: [] },
   date: {
-    disabled: model => !!model && model.amount === 1111,
+    disabled: (model): boolean => !!model && model.amount === 1111,
     validations: [],
   },
   department: {
-    availableOptions: model => (model.currency === 'EUR' ? ['EUR Dep 1', 'EUR Dep 2'] : ['USD Dep 1', 'USD Dep 2']),
+    availableOptions: (model): Department[] =>
+      model.currency === 'EUR' ? ['EUR Dep 1', 'EUR Dep 2'] : ['USD Dep 1', 'USD Dep 2'],
     default: 'USD Dep 1',
     validations: [],
   },
@@ -96,7 +97,7 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
       disabled: true,
       validations: [
         {
-          rule: (s, i) => !isUndefined(i) && s.orders[i].amount >= 1_000,
+          rule: (s, i): boolean => !isUndefined(i) && s.orders[i].amount >= 1_000,
           message: { text: 'hello', severity: 'Warning' },
         },
       ],
@@ -105,5 +106,3 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
     department: {},
   },
 };
-
-const result: RuleResult<ViewModel> = {} as RuleResult<ViewModel>;

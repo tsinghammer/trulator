@@ -1,6 +1,6 @@
-import { Result } from 'trulator/lib/src/types';
-import { testData, viewConfiguration } from 'trulator/lib/test/testData';
-import { ViewModel } from 'trulator/lib/test/types';
+import { testData, viewConfiguration } from 'trulator';
+import { ViewModel } from 'trulator';
+import { Result } from 'trulator';
 
 import { State } from './State';
 
