@@ -1,6 +1,6 @@
-import { testData, viewConfiguration } from 'trulator';
-import { ViewModel } from 'trulator';
-import { Result } from 'trulator';
+import { testData, viewConfiguration } from 'trulatortest';
+import { ViewModel } from 'trulatortest';
+import { Result } from 'trulatortest';
 
 import { State } from './State';
 

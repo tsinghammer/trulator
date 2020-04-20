@@ -11,7 +11,8 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
-    "trulator": "^0.1.4",
+    "trulator": "^0.1.8",
+    "trulatortest": "^0.1.2",
     "typescript": "3.8.3"
   },
   "scripts": {

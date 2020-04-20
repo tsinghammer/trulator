@@ -1,5 +1,5 @@
 import produce from 'immer';
-import { evaluateRules } from 'trulator/lib/src';
+import { evaluateRules } from 'trulatortest';
 
 import { State } from './State';
 import { Action } from './actions';

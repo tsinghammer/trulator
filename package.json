@@ -1,4 +1,25 @@
 {
+  "name": "trulatortest",
+  "version": "0.1.1",
+  "description": "Rule engine and view model configurator",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "files": [
+    "./lib/index.js",
+    "./lib/index.d.ts"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsinghammer/trulator.git"
+  },
+  "keywords": [
+    "rules",
+    "rule Engine",
+    "configurator",
+    "view configuration"
+  ],
+  "author": "Tassilo Singhammer",
+  "license": "MIT",
   "dependencies": {
     "@types/jest": "^24.9.1",
     "@types/node": "12.12.11",
