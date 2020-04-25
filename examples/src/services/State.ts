@@ -1,6 +1,5 @@
-import { ViewModel } from 'trulator/lib/test/types';
-
 import { RuleResult, ViewConfiguration } from '../../../src/types';
+import { ViewModel } from '../test/types';
 
 export interface State {
   mutationCount: number;

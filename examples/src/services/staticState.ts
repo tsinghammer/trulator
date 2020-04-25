@@ -1,8 +1,8 @@
-import { testData, viewConfiguration } from 'trulatortest';
-import { ViewModel } from 'trulatortest';
-import { Result } from 'trulatortest';
+import { Result } from 'trulator';
 
 import { State } from './State';
+import { ViewModel } from '../test/types';
+import { testData, viewConfiguration } from '../test/testData';
 
 const result: Result<ViewModel> = {} as Result<ViewModel>;
 

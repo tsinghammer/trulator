@@ -1,9 +1,9 @@
 import React, { useReducer } from 'react';
 
-import { Currency, Department } from '../../../test/types';
 import { setAmountAction, setAmountHistoryAction, setCurrencyAction, setDepartmentAction } from '../services/actions';
 import reducer from '../services/reducer';
 import { initialState } from '../services/staticState';
+import { Currency, Department } from '../test/types';
 
 const ProductData = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -40,7 +40,7 @@ const ProductData = () => {
       <span style={{ color: 'red' }}>
         disabled: {result.amount && result.amount.disabled ? 'yes' : 'no'}, hidden:{' '}
         {result.amount && result.amount.hidden ? 'yes' : 'no'},{' '}
-        {result.amount && result.amount.messages.map(m => <span>{m.text}</span>)}
+        {result.amount && result.amount.messages.map((m) => <span>{m.text}</span>)}
       </span>{' '}
       <br />
       {amountHistory &&
@@ -57,7 +57,7 @@ const ProductData = () => {
             ></input>{' '}
             {result.amountHistory &&
               result.amountHistory[index] &&
-              result.amountHistory[index]!.messages.map(m => <span>{m.text}</span>)}
+              result.amountHistory[index]!.messages.map((m) => <span>{m.text}</span>)}
             <br />
           </span>
         ))}
@@ -70,7 +70,7 @@ const ProductData = () => {
       <select onChange={handleDepartmentChange}>
         {result.department &&
           result.department.availableOptions &&
-          result.department.availableOptions.map(b => <option selected={department === b}>{b}</option>)}
+          result.department.availableOptions.map((b) => <option selected={department === b}>{b}</option>)}
       </select>
     </div>
   );

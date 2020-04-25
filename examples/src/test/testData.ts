@@ -1,7 +1,7 @@
 import { isUndefined } from 'util';
 
-import { ViewConfiguration } from '../src/types';
 import { Department, ViewModel } from './types';
+import { ViewConfiguration } from 'trulator';
 
 export const testData: ViewModel = {
   amount: 100000,

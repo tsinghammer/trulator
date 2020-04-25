@@ -1,13 +1,4 @@
 {
-  "name": "trulatortest",
-  "version": "0.1.1",
-  "description": "Rule engine and view model configurator",
-  "main": "./lib/index.js",
-  "types": "./lib/index.d.ts",
-  "files": [
-    "./lib/index.js",
-    "./lib/index.d.ts"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tsinghammer/trulator.git"
@@ -20,16 +11,7 @@
   ],
   "author": "Tassilo Singhammer",
   "license": "MIT",
-  "dependencies": {
-    "@types/jest": "^24.9.1",
-    "@types/node": "12.12.11",
-    "eslint-plugin-flowtype": "^4.6.0",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.18.3",
-    "eslint-plugin-react-hooks": "^2.5.0",
-    "typescript-eslint": "^0.0.1-alpha.0"
-  },
+  "dependencies": {},
   "scripts": {
     "build": "tsc",
     "test": "tsc && jest --config jestconfig.json",
@@ -37,11 +19,13 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "devDependencies": {
+    "@types/node": "^13.13.2",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "eslint": "^6.8.0",
+    "eslint-plugin-jest": "^23.8.2",
     "jest": "^25.1.0",
-    "prettier": "^1.19.1",
+    "prettier": "^2.0.5",
     "ts-jest": "^25.0.0",
     "typescript": "^3.7.5"
   }

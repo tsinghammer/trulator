@@ -1,5 +1,5 @@
 {
-  "name": "product-configurator-playground",
+  "name": "trulatortest",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -11,8 +11,7 @@
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
-    "trulator": "^0.1.8",
-    "trulatortest": "^0.1.2",
+    "trulator": "^0.1.12",
     "typescript": "3.8.3"
   },
   "scripts": {
@@ -35,5 +34,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/node": "^13.13.2",
+    "@typescript-eslint/eslint-plugin": "^2.21.0",
+    "@typescript-eslint/parser": "^2.21.0",
+    "eslint": "^6.8.0",
+    "jest": "^25.1.0",
+    "prettier": "^2.0.5",
+    "ts-jest": "^25.0.0",
+    "typescript": "^3.7.5"
   }
 }

@@ -1,21 +1,9 @@
 {
   "name": "trulator",
-  "version": "0.1.0",
+  "version": "0.1.11",
   "description": "Rule engine and view model configurator",
-  "dependencies": {
-    "@types/node": "12.12.11"
-  },
-  "main": "../lib/index.js",
-  "types": "../lib/index.d.ts",
-  "files": [
-    "../index.ts",
-    "./defaultMapper.ts",
-    "./ruleEvaluator.ts",
-    "./types.ts"
-  ],
-  "scripts": {
-    "build": "tsc"
-  },
+  "main": "./index.js",
+  "types": "./index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tsinghammer/trulator.git"
@@ -27,5 +15,12 @@
     "view configuration"
   ],
   "author": "Tassilo Singhammer",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {},
+  "scripts": {
+    "build": "tsc",
+    "test": "tsc && jest --config jestconfig.json",
+    "format": "prettier --write \"src/**/*.ts\" \"src/**/*.js\"",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+  }
 }

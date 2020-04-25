@@ -1,4 +1,4 @@
-import { Currency, Department } from '../../../test/types';
+import { Currency, Department } from '../test/types';
 
 export type Action =
   | {
@@ -23,10 +23,7 @@ export const setAmountAction = (amount: number): Action => {
   return { type: 'setAmount', payload: amount };
 };
 
-export const setAmountHistoryAction = (
-  amountHistory: number,
-  index: number,
-): Action => {
+export const setAmountHistoryAction = (amountHistory: number, index: number): Action => {
   return { type: 'setAmountIndex', payload: amountHistory, index };
 };
 
