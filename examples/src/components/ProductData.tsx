@@ -11,6 +11,7 @@ const ProductData = () => {
     data: { customerName, date, amount, currency, department, amountHistory },
     result,
   } = state;
+  console.log(amountHistory);
 
   const handleAmountChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     dispatch(setAmountAction(Number(event.target.value)));
@@ -35,12 +36,12 @@ const ProductData = () => {
   return (
     <div>
       Client Name: {customerName} <span style={{ color: 'red' }}></span> <br />
-      Date: <input type="text" value={date} disabled={result.date && result.date.disabled} /> <br />
+      Date: <input type="text" value={date} disabled={result.date && result.date.disabled} readOnly /> <br />
       Amount: <input type="text" name="clientName" value={amount} onChange={handleAmountChange}></input>{' '}
       <span style={{ color: 'red' }}>
         disabled: {result.amount && result.amount.disabled ? 'yes' : 'no'}, hidden:{' '}
         {result.amount && result.amount.hidden ? 'yes' : 'no'},{' '}
-        {result.amount && result.amount.messages.map((m) => <span>{m.text}</span>)}
+        {result.amount && result.amount.messages.map((m) => <span key={m.text}>{m.text}</span>)}
       </span>{' '}
       <br />
       {amountHistory &&
@@ -57,20 +58,21 @@ const ProductData = () => {
             ></input>{' '}
             {result.amountHistory &&
               result.amountHistory[index] &&
-              result.amountHistory[index]!.messages.map((m) => <span>{m.text}</span>)}
+              result.amountHistory[index]?.messages &&
+              result.amountHistory[index]?.messages.map((m) => <span key={m.text}>{m.text}</span>)}
             <br />
           </span>
         ))}
       <br />
       <input type="button" onClick={handleSerializeClick} value="Serialize product configuration" />
-      <select onChange={handleCurrencyChange}>
-        <option selected={currency === 'EUR'}>EUR</option>
-        <option selected={currency === 'USD'}>USD</option>
+      <select onChange={handleCurrencyChange} defaultValue={currency}>
+        <option value="EUR">EUR</option>
+        <option value="USD">USD</option>
       </select>
-      <select onChange={handleDepartmentChange}>
+      <select onChange={handleDepartmentChange} defaultValue={department}>
         {result.department &&
           result.department.availableOptions &&
-          result.department.availableOptions.map((b) => <option selected={department === b}>{b}</option>)}
+          result.department.availableOptions.map((b) => <option value={department}>{b}</option>)}
       </select>
     </div>
   );

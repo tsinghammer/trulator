@@ -1,5 +1,5 @@
-import { mapDefaults } from '../src/defaultValuesMapper';
-import { ViewConfiguration } from '../src/types';
+import { mapDefaults } from 'trulator';
+import { ViewConfiguration } from 'trulator';
 import { ViewModel } from './types';
 
 it('should have mapDefaults', () => {

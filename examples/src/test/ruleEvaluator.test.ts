@@ -1,4 +1,4 @@
-import { evaluateRules } from '../src/ruleEvaluator';
+import { evaluateRules } from 'trulator';
 import { testData, viewConfiguration } from './testData';
 import { ViewModel } from './types';
 
