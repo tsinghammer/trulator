@@ -4,15 +4,13 @@
   "private": true,
   "dependencies": {
     "@types/jest": "25.1.3",
-    "@types/node": "13.7.7",
     "@types/react": "16.9.23",
     "@types/react-dom": "16.9.5",
     "immer": "^5.3.6",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-scripts": "3.4.0",
-    "trulator": "^0.1.12",
-    "typescript": "3.8.3"
+    "trulator": "^0.1.13"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -36,13 +34,11 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^13.13.2",
     "@typescript-eslint/eslint-plugin": "^2.21.0",
     "@typescript-eslint/parser": "^2.21.0",
     "eslint": "^6.8.0",
     "jest": "^25.1.0",
     "prettier": "^2.0.5",
-    "ts-jest": "^25.0.0",
-    "typescript": "^3.7.5"
+    "ts-jest": "^25.0.0"
   }
 }
