@@ -9,7 +9,7 @@ it('should have mapDefaults', () => {
 it('should map default values from view configuration to view model', () => {
   const viewModel: ViewModel = {
     amount: 0,
-    amountHistory: [1, 2, 343243, 655555],
+    amountHistory: [1, 2, 343_243, 655_555],
     currency: 'EUR',
     currentOrder: {
       amount: 123.45,
