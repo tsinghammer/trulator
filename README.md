@@ -42,18 +42,18 @@ A rule can contain the following:
 
 If you model looks like the following:
 
-`````javascript
+```javascript
 export const testData: ViewModel = {
-amount: 1_000,
+  amount: 1_000,
 };
 ```
 
 your view configuration would look like:
 
-````javascript
+```javascript
 export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
-    amount: {
-        default: 123_456,
+  amount: {
+    default: 123_456,
     disabled: true,
     hidden: (model): boolean => model.amount <= 4_000,
     validations: [
@@ -66,7 +66,7 @@ export const viewConfiguration: ViewConfiguration<ViewModel, ViewModel> = {
         rule: (model): boolean => model.amount !== 1_234,
       },
     ],
-  }
+  },
 };
 ```
 
@@ -82,4 +82,7 @@ Thanks to TypeScript all three data objects are forced to share the same structu
 The same goes for the result object except that instead of the fields containing rules they hold the outcome of the rule run on the data field itself.
 
 Each rule gets the current model/state as an input and therefore can evaluate any combination of fields the model offers. The rule set can be run _after_ every mutation of the state. This ensures that all rules are always being evaluated based on the current input of the user.
-`````
+
+```
+
+```
